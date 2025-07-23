@@ -1359,25 +1359,10 @@
     }
     
     function loadSales() {
-      let startDateValue = startDateInput.value;
-      let endDateValue = endDateInput.value;
-
-      // Si no hay fecha de inicio, usar hoy
-      if (!startDateValue) {
-        startDateValue = new Date().toISOString().split('T')[0];
-        startDateInput.value = startDateValue;
-      }
-
-      // Si no hay fecha fin, usar hoy
-      if (!endDateValue) {
-        endDateValue = new Date().toISOString().split('T')[0];
-        endDateInput.value = endDateValue;
-      }
-
-      const startDate = new Date(startDateValue);
-      const endDate = new Date(endDateValue);
+      const startDate = new Date(startDateInput.value);
+      const endDate = new Date(endDateInput.value);
       endDate.setDate(endDate.getDate() + 1); // Incluir todo el día final
-
+      
       const store = storeFilter.value;
       
       salesList.innerHTML = '';
@@ -1490,21 +1475,8 @@
     }
     
     function loadAdminSales() {
-      let startDateValue = adminStartDate.value;
-      let endDateValue = adminEndDate.value;
-
-      if (!startDateValue) {
-        startDateValue = new Date().toISOString().split('T')[0];
-        adminStartDate.value = startDateValue;
-      }
-
-      if (!endDateValue) {
-        endDateValue = new Date().toISOString().split('T')[0];
-        adminEndDate.value = endDateValue;
-      }
-
-      const startDate = new Date(startDateValue);
-      const endDate = new Date(endDateValue);
+      const startDate = new Date(adminStartDate.value);
+      const endDate = new Date(adminEndDate.value);
       endDate.setDate(endDate.getDate() + 1); // Incluir todo el día final
       
       const store = adminStoreFilter.value;
